@@ -5,163 +5,366 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academia Iron Fitness</title>
     
+    <!-- Fonte Google Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --cor-principal: #121212;
-            --cor-secundaria: #e63946;
-            --cor-fundo: #f4f6f8;
-            --cor-branco: #ffffff;
-            --cor-cinza-claro: #f1f3f5;
-            --cor-cinza-borda: #dee2e6;
-            --sombra-padrao: 0 4px 12px rgba(0, 0, 0, 0.05);
-            --borda-raio: 10px;
+            --primary: #d90429;
+            --primary-dark: #b7094c;
+            --bg-main: #000000; /* Fundo de trás totalmente preto */
+            --surface: #18181c;
+            --card-bg: #ffffff; /* Caixas/Seções principais em branco */
+            --text-main: #0f172a; /* Texto escuro dentro das caixas brancas */
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 20px 30px -10px rgba(217, 4, 41, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--cor-fundo);
-            color: var(--cor-principal);
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        header {
-            background: linear-gradient(135deg, #1f1f1f 0%, #121212 100%);
-            color: var(--cor-branco);
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 4px solid var(--cor-secundaria);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        /* Header Fixo Preto */
+        .header-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #09090b; /* Topo 100% Preto */
+            border-bottom: 1px solid rgba(63, 63, 70, 0.8);
+            padding: 16px 24px;
         }
 
-        header h1 {
-            margin: 0 0 10px 0;
-            font-size: 2.5rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        header p {
-            margin: 0 0 25px 0;
-            color: #adb5bd;
-            font-size: 1.1rem;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(217, 4, 41, 0.3);
         }
 
         nav {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            gap: 8px;
         }
 
         nav a {
-            color: var(--cor-branco);
+            color: var(--text-muted);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
-            padding: 6px 14px;
+            font-size: 0.9rem;
+            padding: 8px 16px;
             border-radius: 20px;
-            background-color: rgba(255, 255, 255, 0.08);
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
         nav a:hover {
-            background-color: var(--cor-secundaria);
-            color: var(--cor-branco);
+            color: #ffffff;
+            background-color: rgba(217, 4, 41, 0.2);
         }
 
-        /* Foco visível acessível */
-        button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
-            outline: 3px solid var(--cor-secundaria);
-            outline-offset: 3px;
+        /* Hero Banner 100% Vermelho */
+        .hero {
+            background: linear-gradient(135deg, #d90429 0%, #b7094c 100%);
+            color: #ffffff;
+            padding: 90px 24px 110px 24px;
+            text-align: center;
+            position: relative;
         }
 
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #f8f9fa;
+            margin-bottom: 32px;
+            font-weight: 500;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            color: var(--primary);
+            padding: 16px 32px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 1.05rem;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.25s ease;
+        }
+
+        .hero-btn:hover {
+            background: #f1f3f5;
+            transform: translateY(-2px);
+        }
+
+        /* Container Principal */
         main {
-            max-width: 900px;
-            margin: 40px auto;
+            max-width: 1000px;
+            margin: -50px auto 60px auto;
             padding: 0 20px;
+            position: relative;
+            z-index: 2;
         }
 
         section {
-            background: var(--cor-branco);
-            padding: 35px;
-            margin-bottom: 30px;
-            border: 1px solid var(--cor-cinza-borda);
-            border-radius: var(--borda-raio);
-            box-shadow: var(--sombra-padrao);
+            background: var(--card-bg); /* Caixas em Branco */
+            padding: 40px;
+            margin-bottom: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
         }
 
         section h2 {
-            margin-top: 0;
-            color: var(--cor-principal);
-            border-bottom: 2px solid var(--cor-cinza-claro);
-            padding-bottom: 12px;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        section h2::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 28px;
+            background: var(--primary);
+            border-radius: 4px;
         }
 
         section h3 {
-            font-size: 1.25rem;
-            margin-top: 30px;
-            color: #343a40;
+            font-size: 1.3rem;
+            color: var(--text-main);
+            margin: 36px 0 16px 0;
+            font-weight: 700;
         }
 
-        ul {
-            padding-left: 20px;
+        /* Estilo Exato da Imagem para as Modalidades */
+        .lista-modalidades {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 30px;
         }
 
-        ul li {
-            margin-bottom: 8px;
+        .item-modalidade {
+            background: #121214; /* Fundo escuro igual a referência */
+            color: #ffffff;
+            padding: 18px 24px;
+            border-radius: var(--radius-md);
+            border: 1px solid #27272a;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .item-modalidade:hover {
+            border-color: var(--primary);
+            background: #18181c;
+        }
+
+        .item-modalidade-topo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-modalidade-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .item-modalidade-info span {
+            font-weight: 700;
             font-size: 1.05rem;
+            color: #ffffff;
+        }
+
+        .badge-modalidade {
+            background: rgba(217, 4, 41, 0.2);
+            color: #ff6b6b;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card-descricao {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, margin-top 0.35s ease, padding-top 0.35s ease;
+            font-size: 0.95rem;
+            color: #a1a1aa;
+            line-height: 1.5;
+        }
+
+        .item-modalidade.ativa {
+            border-color: var(--primary);
+            background: #18181c;
+        }
+
+        .item-modalidade.ativa .card-descricao {
+            max-height: 120px;
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px dashed rgba(217, 4, 41, 0.3);
+        }
+
+        ul.modalidades-list {
+            display: none;
+        }
+
+        /* Mídia / Imagens e Vídeos */
+        .conteudo-centralizado {
+            text-align: center;
+            margin: 24px 0;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: #000;
+        }
+
+        .conteudo-centralizado img, 
+        .conteudo-centralizado video {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            display: block;
+            border-radius: var(--radius-md);
+        }
+
+        /* Tabelas Estilizadas */
+        .table-container {
+            overflow-x: auto;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
         }
 
         table {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin-top: 20px;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--cor-cinza-borda);
+            border-collapse: collapse;
+            text-align: left;
+            background: #ffffff;
         }
 
         th, td {
-            padding: 14px 18px;
-            text-align: left;
+            padding: 16px 20px;
+            font-size: 0.95rem;
         }
 
         th {
-            background-color: var(--cor-cinza-claro);
-            font-weight: 600;
-            color: #495057;
-            border-bottom: 1px solid var(--cor-cinza-borda);
+            background-color: #f1f5f9;
+            font-weight: 700;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
         }
 
         td {
-            border-bottom: 1px solid var(--cor-cinza-claro);
+            border-bottom: 1px solid var(--border);
+            color: var(--text-main);
+            font-weight: 500;
         }
 
         tr:last-child td {
             border-bottom: none;
         }
 
+        .link-externo {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            padding: 4px 8px;
+            border-radius: 6px;
+            background: rgba(217, 4, 41, 0.1);
+            transition: background 0.2s;
+        }
+
+        .link-externo:hover {
+            background: rgba(217, 4, 41, 0.2);
+        }
+
+        /* Formulário */
         fieldset {
-            border: 1px solid var(--cor-cinza-borda);
-            border-radius: var(--borda-raio);
-            padding: 25px;
+            border: none;
+            padding: 0;
             margin: 0;
-            background-color: #fafbfc;
         }
 
         legend {
-            font-weight: bold;
-            color: var(--cor-secundaria);
-            padding: 0 10px;
             font-size: 1.1rem;
-            background-color: var(--cor-branco);
-            border: 1px solid var(--cor-cinza-borda);
-            border-radius: 6px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding: 0;
         }
 
         form p {
@@ -169,129 +372,280 @@
         }
 
         form label {
+            display: block;
             font-weight: 600;
-            font-size: 0.95rem;
-            display: inline-block;
-            margin-bottom: 8px;
-            color: #495057;
+            font-size: 0.875rem;
+            margin-bottom: 6px;
+            color: var(--text-main);
         }
 
         form input, form select {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ced4da;
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 1rem;
-            background-color: var(--cor-branco);
-            transition: border-color 0.2s, box-shadow 0.2s;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            background-color: #f8fafc;
+            transition: all 0.2s ease;
         }
 
         form input:focus, form select:focus {
-            border-color: var(--cor-secundaria);
-            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.15);
+            background-color: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(217, 4, 41, 0.15);
             outline: none;
         }
 
-        .btn-acao {
-            background-color: var(--cor-secundaria);
-            color: var(--cor-branco);
-            padding: 14px 20px;
-            border: none;
-            border-radius: 8px;
+        .grupo-radio {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .grupo-radio label {
+            font-weight: normal;
             cursor: pointer;
-            font-size: 1.05rem;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        .grupo-radio input[type="radio"] {
+            width: auto;
+            accent-color: var(--primary);
+        }
+
+        #campo-problema-saude {
+            display: none;
+            margin-top: 15px;
+            padding: 16px;
+            background-color: #fef2f2;
+            border: 1px dashed var(--primary);
+            border-radius: var(--radius-md);
+        }
+
+        .btn-acao {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 16px 24px;
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 700;
             width: 100%;
-            transition: background-color 0.2s, transform 0.1s;
-            box-shadow: 0 4px 6px rgba(230, 57, 70, 0.2);
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-lg);
         }
 
         .btn-acao:hover {
-            background-color: #c5303c;
+            opacity: 0.95;
+            transform: translateY(-1px);
         }
 
-        .btn-acao:active {
-            transform: scale(0.98);
+        #mensagem-sucesso {
+            display: none;
+            margin-top: 20px;
+            padding: 16px;
+            background-color: #dcfce7;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.95rem;
         }
 
         footer {
-            background-color: var(--cor-principal);
-            color: var(--cor-branco);
+            background-color: #09090b;
+            color: var(--text-muted);
             text-align: center;
-            padding: 25px;
-            margin-top: 50px;
-            font-size: 0.95rem;
-            border-top: 4px solid var(--cor-secundaria);
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            border-top: 1px solid #27272a;
         }
 
-        .conteudo-centralizado {
-            text-align: center;
-            margin-top: 25px;
-        }
-
-        .conteudo-centralizado img, 
-        .conteudo-centralizado video {
-            border-radius: var(--borda-raio);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            max-width: 100%;
-            height: auto;
+        @media (max-width: 640px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            section {
+                padding: 24px 18px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Academia Iron Fitness</h1>
-        <p>O lugar certo para você treinar, ganhar saúde e alcançar seus objetivos!</p>
-        
-        <nav aria-label="Navegação Principal">
-            <a href="#modalidades">Modalidades</a>
-            <a href="#espaco">Nosso Espaço</a>
-            <a href="#matricula">Pré-Matrícula</a>
-        </nav>
+    <!-- Header Fixo Preto -->
+    <header class="header-nav">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">⚡</div>
+                Iron Fitness
+            </a>
+            <nav aria-label="Navegação Principal">
+                <a href="#modalidades">Modalidades</a>
+                <a href="#espaco">Espaço</a>
+                <a href="#matricula">Pré-Matrícula</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section 100% Vermelho -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Academia Iron Fitness</h1>
+            <p>O lugar certo para você treinar, ganhar saúde e alcançar seus objetivos!</p>
+            <a href="#matricula" class="hero-btn">Fazer Pré-Matrícula</a>
+        </div>
     </header>
 
     <main>
 
         <section id="modalidades">
-            <h2>Nossas Modalidades</h2>
-            <ul>
+            <h2>Modalidades e Planos</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">Clique em uma modalidade para ver a explicação detalhada:</p>
+            
+            <!-- Lista Interativa Estilo Referência -->
+            <div class="lista-modalidades">
+                <div class="item-modalidade" onclick="this.classList.toggle('ativa')">
+                    <div class="item-modalidade-topo">
+                        <div class="item-modalidade-info">
+                            <span>🏋️‍♂️</span>
+                            <span>Musculação Completa</span>
+                        </div>
+                        <span class="badge-modalidade">Força</span>
+                    </div>
+                    <div class="card-descricao">
+                        Área completa de pesos livres, halteres e equipamentos modernos para ganho de massa muscular, definição e hipertrofia.
+                    </div>
+                </div>
+
+                <div class="item-modalidade" onclick="this.classList.toggle('ativa')">
+                    <div class="item-modalidade-topo">
+                        <div class="item-modalidade-info">
+                            <span>🥊</span>
+                            <span>Muay Thai & Boxe</span>
+                        </div>
+                        <span class="badge-modalidade">Luta</span>
+                    </div>
+                    <div class="card-descricao">
+                        Treinos dinâmicos de alta intensidade focados em técnicas de combate, alívio de estresse, coordenação e alta queima calórica.
+                    </div>
+                </div>
+
+                <div class="item-modalidade" onclick="this.classList.toggle('ativa')">
+                    <div class="item-modalidade-topo">
+                        <div class="item-modalidade-info">
+                            <span>🔥</span>
+                            <span>CrossFit Total</span>
+                        </div>
+                        <span class="badge-modalidade">Funcional</span>
+                    </div>
+                    <div class="card-descricao">
+                        Exercícios funcionais em circuito para melhorar o condicionamento cardiorrespiratório, resistência, agilidade e força global.
+                    </div>
+                </div>
+
+                <div class="item-modalidade" onclick="this.classList.toggle('ativa')">
+                    <div class="item-modalidade-topo">
+                        <div class="item-modalidade-info">
+                            <span>🥋</span>
+                            <span>Jiu-Jitsu</span>
+                        </div>
+                        <span class="badge-modalidade">Arte Suave</span>
+                    </div>
+                    <div class="card-descricao">
+                        Aulas de defesa pessoal e arte suave com tatame profissional, acompanhamento técnico e turmas para todos os níveis.
+                    </div>
+                </div>
+
+                <div class="item-modalidade" onclick="this.classList.toggle('ativa')">
+                    <div class="item-modalidade-topo">
+                        <div class="item-modalidade-info">
+                            <span>🧘‍♀️</span>
+                            <span>Pilates e Alongamento</span>
+                        </div>
+                        <span class="badge-modalidade">Flexibilidade</span>
+                    </div>
+                    <div class="card-descricao">
+                        Exercícios focados em controle postural, fortalecimento da musculatura profunda (core), flexibilidade e prevenção de lesões.
+                    </div>
+                </div>
+            </div>
+
+            <ul class="modalidades-list">
                 <li>Musculação Completa</li>
                 <li>Aulas de Muay Thai</li>
                 <li>Treino Funcional e Cross</li>
+                <li>Jiu-Jitsu</li>
+                <li>Pilates e Alongamento</li>
             </ul>
 
             <div class="conteudo-centralizado">
-                <!-- Imagem linkada diretamente da internet para carregar sem precisar de arquivos locais -->
                 <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop" 
                      alt="Pessoas treinando musculação na academia Iron Fitness" 
                      width="400">
             </div>
 
-            <h3>Horário de Funcionamento</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Dia</th>
-                        <th>Horário</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Segunda a Sexta</td>
-                        <td>06:00 às 22:00</td>
-                    </tr>
-                    <tr>
-                        <td>Sábado</td>
-                        <td>08:00 às 14:00</td>
-                    </tr>
-                </tbody>
-            </table>
+            <h3>Tabela de Planos e Valores</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Plano</th>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Musculação Básica</td>
+                            <td>Acesso livre à musculação nos horários padrão.</td>
+                            <td>R$ 90,00 / mês</td>
+                        </tr>
+                        <tr>
+                            <td>Muay Thai Intensivo</td>
+                            <td>Aulas focadas em luta e condicionamento.</td>
+                            <td>R$ 120,00 / mês</td>
+                        </tr>
+                        <tr>
+                            <td>CrossFit Total</td>
+                            <td>Treinamento funcional de alta intensidade.</td>
+                            <td>R$ 150,00 / mês</td>
+                        </tr>
+                        <tr>
+                            <td>Jiu-Jitsu</td>
+                            <td>Treino de arte suave e defesa pessoal.</td>
+                            <td>R$ 130,00 / mês</td>
+                        </tr>
+                        <tr>
+                            <td>Plano Família</td>
+                            <td>Até 3 integrantes com acesso total.</td>
+                            <td>R$ 250,00 / mês</td>
+                        </tr>
+                        <tr>
+                            <td>VIP Gold Anual</td>
+                            <td>Acesso total a todas as modalidades e horários.</td>
+                            <td>R$ 1.000,00 / ano</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-            <p style="margin-top: 25px;">
+            <p style="margin-top: 25px; font-size: 0.95rem; color: var(--text-muted);">
                 Veja dicas de treino no site do 
-                <a href="https://www.hipertrofia.org" target="_blank" rel="noopener noreferrer" style="color: var(--cor-secundaria); font-weight: 600; text-decoration: none;">Hipertrofia</a>.
+                <a href="https://www.hipertrofia.org" target="_blank" rel="noopener noreferrer" class="link-externo">Hipertrofia</a>.
             </p>
         </section>
 
@@ -299,12 +653,10 @@
             <h2>Conheça o Nosso Espaço</h2>
             
             <div class="conteudo-centralizado">
-                <!-- Vídeo linkado diretamente da web via link direto da Mixkit -->
-                <video controls 
+                <video controls autoplay loop muted playsinline 
                        poster="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600&auto=format&fit=crop" 
-                       preload="none" 
                        width="400">
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-man-runs-on-a-treadmill-41481-large.mp4" type="video/mp4">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
                     O seu navegador não consegue rodar este vídeo. 
                 </video>
             </div>
@@ -312,35 +664,59 @@
 
         <section id="matricula">
             <h2>Faça sua Pré-Matrícula</h2>
-            <form action="#" method="POST">
+            <form id="form-matricula">
                 <fieldset>
-                    <legend>Preencha seus Dados</legend>
+                    <legend>Preencha seus Dados e Saúde</legend>
 
                     <p>
                         <label for="nome">Nome Completo:</label>
-                        <input type="text" id="nome" name="nome" required>
+                        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
                     </p>
 
                     <p>
                         <label for="email">E-mail:</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
                     </p>
 
                     <p>
-                        <label for="whatsapp">WhatsApp (só números):</label>
-                        <input type="tel" id="whatsapp" name="whatsapp" pattern="[0-9]{11}" placeholder="83999999999" required>
+                        <label for="whatsapp">WhatsApp (com DDD, 11 dígitos):</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" pattern="[0-9]{11}" maxlength="11" placeholder="83999999999" required>
                     </p>
 
                     <p>
                         <label for="plano">Escolha o Plano:</label>
                         <select id="plano" name="plano" required>
                             <option value="">Selecione um plano...</option>
-                            <option value="mensal">Plano Mensal</option>
-                            <option value="anual">Plano Anual VIP</option>
+                            <option value="musculacao">Musculação Básica - R$ 90,00/mês</option>
+                            <option value="muaythai">Muay Thai Intensivo - R$ 120,00/mês</option>
+                            <option value="crossfit">CrossFit Total - R$ 150,00/mês</option>
+                            <option value="jiujitsu">Jiu-Jitsu - R$ 130,00/mês</option>
+                            <option value="familia">Plano Família - R$ 250,00/mês</option>
+                            <option value="gold">VIP Gold Anual - R$ 1.000,00/ano</option>
                         </select>
                     </p>
 
                     <p>
+                        <label>Possui algum problema de saúde?</label>
+                        <div class="grupo-radio">
+                            <label><input type="radio" name="possui-saude" value="nao" checked> Não</label>
+                            <label><input type="radio" name="possui-saude" value="sim"> Sim</label>
+                        </div>
+                    </p>
+
+                    <div id="campo-problema-saude">
+                        <label for="qual-problema">Selecione o problema de saúde:</label>
+                        <select id="qual-problema" name="qual-problema">
+                            <option value="">Selecione...</option>
+                            <option value="hipertensao">Hipertensão arterial</option>
+                            <option value="articular">Problemas articulares / joelho</option>
+                            <option value="asma">Asma ou problemas respiratórios</option>
+                            <option value="diabetes">Diabetes</option>
+                            <option value="coluna">Lesões na coluna / lombalgia</option>
+                        </select>
+                    </div>
+
+                    <p style="margin-top: 20px;">
                         <label for="data-inicio">Data de Início:</label>
                         <input type="date" id="data-inicio" name="data-inicio" required>
                     </p>
@@ -348,6 +724,8 @@
 
                 <br>
                 <button type="submit" class="btn-acao">Enviar Matrícula</button>
+
+                <div id="mensagem-sucesso">Pré-matrícula concluída com sucesso! Entraremos em contato em breve.</div>
             </form>
         </section>
 
@@ -357,12 +735,13 @@
         <p>&copy; 2026 Academia Iron Fitness. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Script de lógica em JavaScript estruturado (Aulas 09, 13, 14) -->
+    <!-- Script JavaScript -->
     <script>
         const planosAcademia = [
             { nome: "Musculação Básica", preco: 90, categoria: "Musculação" },
             { nome: "Muay Thai Intensivo", preco: 120, categoria: "Luta" },
             { nome: "CrossFit Total", preco: 150, categoria: "Funcional" },
+            { nome: "Jiu-Jitsu", preco: 130, categoria: "Luta" },
             { nome: "Plano Família", preco: 250, categoria: "Promocional" },
             { nome: "VIP Gold Anual", preco: 1000, categoria: "Completo" }
         ];
@@ -399,7 +778,7 @@
                     mensagem = "Foco em hipertrofia e resistência.";
                     break;
                 case "Luta":
-                    mensagem = "Alta intensidade e defesa pessoal.";
+                    mensagem = "Alta intensidade, técnica e defesa pessoal.";
                     break;
                 case "Funcional":
                     mensagem = "Condicionamento físico global.";
@@ -416,7 +795,7 @@
 
         let somaPrecos = 0;
         let planosAcessiveis = 0;
-        for (let i =0; i < planosAcademia.length; i++) {
+        for (let i = 0; i < planosAcademia.length; i++) {
             somaPrecos += planosAcademia[i].preco;
             if (planosAcademia[i].preco <= limiteOrcamento) {
                 planosAcessiveis++;
@@ -430,11 +809,53 @@
 
         console.table(planosAcademia);
 
-        let contadorSimulacao = 1;
-        while (contadorSimulacao <= 2) {
-            console.log(`Simulação de atendimento número ${contadorSimulacao} realizada com sucesso.`);
-            contadorSimulacao++;
-        }
+        // Controle interativo da caixa de saúde (Sim / Não)
+        const radiosSaude = document.querySelectorAll('input[name="possui-saude"]');
+        const campoProblemaSaude = document.getElementById("campo-problema-saude");
+
+        radiosSaude.forEach(radio => {
+            radio.addEventListener("change", function() {
+                if (this.value === "sim") {
+                    campoProblemaSaude.style.display = "block";
+                    document.getElementById("qual-problema").setAttribute("required", "required");
+                } else {
+                    campoProblemaSaude.style.display = "none";
+                    document.getElementById("qual-problema").removeAttribute("required");
+                    document.getElementById("qual-problema").value = "";
+                }
+            });
+        });
+
+        // Validação e envio do formulário sem recarregar a página
+        const form = document.getElementById("form-matricula");
+        const mensagemSucesso = document.getElementById("mensagem-sucesso");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const emailInput = document.getElementById("email").value;
+            const whatsappInput = document.getElementById("whatsapp").value;
+
+            // Validação de E-mail
+            if (!emailInput.includes("@") || !emailInput.includes(".")) {
+                alert("Atenção: O e-mail informado é inválido! Faltam caracteres essenciais como '@' ou '.'");
+                return;
+            }
+
+            // Validação de Telefone (exatamente 11 dígitos)
+            if (whatsappInput.length !== 11 || isNaN(Number(whatsappInput))) {
+                alert("Atenção: O WhatsApp deve conter exatamente 11 dígitos numéricos (com DDD).");
+                return;
+            }
+
+            mensagemSucesso.style.display = "block";
+            form.reset();
+            campoProblemaSaude.style.display = "none";
+
+            setTimeout(function() {
+                mensagemSucesso.style.display = "none";
+            }, 5000);
+        });
     </script>
 </body>
 </html>
