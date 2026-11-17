@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia Iron Fitness</title>
+    
+    <!-- Fonte Google Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Links para os arquivos CSS externos -->
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Fixo Preto -->
+    <header class="header-nav">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">⚡</div>
+                Iron Fitness
+            </a>
+            <nav aria-label="Navegação Principal">
+                <a href="#modalidades">Modalidades</a>
+                <a href="#espaco">Espaço</a>
+                <a href="#matricula">Pré-Matrícula</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section 100% Vermelho -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Academia Iron Fitness</h1>
+            <p>O lugar certo para você treinar, ganhar saúde e alcançar seus objetivos!</p>
+            <a href="#matricula" class="hero-btn">Fazer Pré-Matrícula</a>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="modalidades">
+            <h2>Modalidades e Planos</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">Clique em uma modalidade para ver a explicação detalhada:</p>
+            
+            <!-- Lista Interativa Estilo Referência -->
+            <div class="lista-modalidades">
+                <div class="item-modalidade" onclick="this.classList.toggle('ativa')">
+                    <div class="item-modalidade-topo">
+                        <div class="item-modalidade-info">
+                            <span>🏋️‍♂️</span>
+                            <span>Musculação Completa</span>
+                        </div>
+                        <span class="badge-modalidade">Força</span>
+                    </div>
+                    <div class="card-descricao">
+                        Área completa de pesos livres, halteres e equipamentos modernos para ganho de massa muscular, definição e hipertrofia.
+                    </div>
+                </div>
+
+                <div class="item-modalidade" onclick="this.classList.toggle('ativa')">
+                    <div class="item-modalidade-topo">
+                        <div class="item-modalidade-info">
+                            <span>🥊</span>
+                            <span>Muay Thai & Boxe</span>
+                        </div>
+                        <span class="badge-modalidade">Luta</span>
+                    </div>
+                    <div class="card-descricao">
+                        Treinos dinâmicos de alta intensidade focados em técnicas de combate, alívio de estresse, coordenação e alta queima calórica.
+                    </div>
+                </div>
+
+                <div class="item-modalidade" onclick="this.classList.toggle('ativa')">
+                    <div class="item-modalidade-topo">
+                        <div class="item-modalidade-info">
+                            <span>🔥</span>
+                            <span>CrossFit Total</span>
+                        </div>
+                        <span class="badge-modalidade">Funcional</span>
+                    </div>
+                    <div class="card-descricao">
+                        Exercícios funcionais em circuito para melhorar o condicionamento cardiorrespiratório, resistência, agilidade e força global.
+                    </div>
+                </div>
+
+                <div class="item-modalidade" onclick="this.classList.toggle('ativa')">
+                    <div class="item-modalidade-topo">
+                        <div class="item-modalidade-info">
+                            <span>🥋</span>
+                            <span>Jiu-Jitsu</span>
+                        </div>
+                        <span class="badge-modalidade">Arte Suave</span>
+                    </div>
+                    <div class="card-descricao">
+                        Aulas de defesa pessoal e arte suave com tatame profissional, acompanhamento técnico e turmas para todos os níveis.
+                    </div>
+                </div>
+
+                <div class="item-modalidade" onclick="this.classList.toggle('ativa')">
+                    <div class="item-modalidade-topo">
+                        <div class="item-modalidade-info">
+                            <span>🧘‍♀️</span>
+                            <span>Pilates e Alongamento</span>
+                        </div>
+                        <span class="badge-modalidade">Flexibilidade</span>
+                    </div>
+                    <div class="card-descricao">
+                        Exercícios focados em controle postural, fortalecimento da musculatura profunda (core), flexibilidade e prevenção de lesões.
+                    </div>
+                </div>
+            </div>
+
+            <ul class="modalidades-list">
+                <li>Musculação Completa</li>
+                <li>Aulas de Muay Thai</li>
+                <li>Treino Funcional e Cross</li>
+                <li>Jiu-Jitsu</li>
+                <li>Pilates e Alongamento</li>
+            </ul>
+
+            <div class="conteudo-centralizado">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop" 
+                     alt="Pessoas treinando musculação na academia Iron Fitness" 
+                     width="400">
+            </div>
+
+            <h3>Tabela de Planos e Valores</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Plano</th>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Musculação Básica</td>
+                            <td>Acesso livre à musculação nos horários padrão.</td>
+                            <td>R$ 90,00 / mês</td>
+                        </tr>
+                        <tr>
+                            <td>Muay Thai Intensivo</td>
+                            <td>Aulas focadas em luta e condicionamento.</td>
+                            <td>R$ 120,00 / mês</td>
+                        </tr>
+                        <tr>
+                            <td>CrossFit Total</td>
+                            <td>Treinamento funcional de alta intensidade.</td>
+                            <td>R$ 150,00 / mês</td>
+                        </tr>
+                        <tr>
+                            <td>Jiu-Jitsu</td>
+                            <td>Treino de arte suave e defesa pessoal.</td>
+                            <td>R$ 130,00 / mês</td>
+                        </tr>
+                        <tr>
+                            <td>Plano Família</td>
+                            <td>Até 3 integrantes com acesso total.</td>
+                            <td>R$ 250,00 / mês</td>
+                        </tr>
+                        <tr>
+                            <td>VIP Gold Anual</td>
+                            <td>Acesso total a todas as modalidades e horários.</td>
+                            <td>R$ 1.000,00 / ano</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p style="margin-top: 25px; font-size: 0.95rem; color: var(--text-muted);">
+                Veja dicas de treino no site do 
+                <a href="https://www.hipertrofia.org" target="_blank" rel="noopener noreferrer" class="link-externo">Hipertrofia</a>.
+            </p>
+        </section>
+
+        <section id="espaco">
+            <h2>Conheça o Nosso Espaço</h2>
+            
+            <div class="conteudo-centralizado">
+                <video controls autoplay loop muted playsinline 
+                       poster="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600&auto=format&fit=crop" 
+                       width="400">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                    O seu navegador não consegue rodar este vídeo. 
+                </video>
+            </div>
+        </section>
+
+        <section id="matricula">
+            <h2>Faça sua Pré-Matrícula</h2>
+            <form id="form-matricula">
+                <fieldset>
+                    <legend>Preencha seus Dados e Saúde</legend>
+
+                    <p>
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
+                    </p>
+
+                    <p>
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
+                    </p>
+
+                    <p>
+                        <label for="whatsapp">WhatsApp (com DDD, 11 dígitos):</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" pattern="[0-9]{11}" maxlength="11" placeholder="83999999999" required>
+                    </p>
+
+                    <p>
+                        <label for="plano">Escolha o Plano:</label>
+                        <select id="plano" name="plano" required>
+                            <option value="">Selecione um plano...</option>
+                            <option value="musculacao">Musculação Básica - R$ 90,00/mês</option>
+                            <option value="muaythai">Muay Thai Intensivo - R$ 120,00/mês</option>
+                            <option value="crossfit">CrossFit Total - R$ 150,00/mês</option>
+                            <option value="jiujitsu">Jiu-Jitsu - R$ 130,00/mês</option>
+                            <option value="familia">Plano Família - R$ 250,00/mês</option>
+                            <option value="gold">VIP Gold Anual - R$ 1.000,00/ano</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label>Possui algum problema de saúde?</label>
+                        <div class="grupo-radio">
+                            <label><input type="radio" name="possui-saude" value="nao" checked> Não</label>
+                            <label><input type="radio" name="possui-saude" value="sim"> Sim</label>
+                        </div>
+                    </p>
+
+                    <div id="campo-problema-saude">
+                        <label for="qual-problema">Selecione o problema de saúde:</label>
+                        <select id="qual-problema" name="qual-problema">
+                            <option value="">Selecione...</option>
+                            <option value="hipertensao">Hipertensão arterial</option>
+                            <option value="articular">Problemas articulares / joelho</option>
+                            <option value="asma">Asma ou problemas respiratórios</option>
+                            <option value="diabetes">Diabetes</option>
+                            <option value="coluna">Lesões na coluna / lombalgia</option>
+                        </select>
+                    </div>
+
+                    <p style="margin-top: 20px;">
+                        <label for="data-inicio">Data de Início:</label>
+                        <input type="date" id="data-inicio" name="data-inicio" required>
+                    </p>
+                </fieldset>
+
+                <br>
+                <button type="submit" class="btn-acao">Enviar Matrícula</button>
+
+                <div id="mensagem-sucesso">Pré-matrícula concluída com sucesso! Entraremos em contato em breve.</div>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Academia Iron Fitness. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Script JavaScript Externo com defer -->
+    <script src="script.js" defer></script>
+</body>
+</html>
