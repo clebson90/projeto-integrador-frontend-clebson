@@ -24,7 +24,8 @@ trabalho/
 ├── script.js
 └── images/
     ├── desktop.png
-    └── celular.png
+    └── celular.png 
+```
 
 ## 5. Como Executar
 1. Certifique-se de ter o editor **VS Code** instalado junto com a extensão **Live Server**.
